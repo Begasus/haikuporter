@@ -1,0 +1,305 @@
+SUMMARY="Short description of ProjectX"
+DESCRIPTION="Long ProjectX description.
+Spanning several paragraphs, maybe
+ - containing
+ - bullet points etc.
+You can also have really long lines that do not fit in 80 characters and use \
+a backslash to wrap the line."
+HOMEPAGE="https://invent.kde.org/pim/projectx"
+COPYRIGHT="2010-2024 KDE Organisation"
+LICENSE="MIT
+	GNU GPL v2"
+REVISION="1"
+SOURCE_URI="https://download.kde.org/stable/release-service/$portVersion/src/projectx-$portVersion.tar.xz"
+CHECKSUM_SHA256="000000000000000000000000000000000"
+SOURCE_DIR="projectx-$portVersion"
+PATCHES="projectx-$portVersion.patchset"
+ADDITIONAL_FILES="projectx.rdef.in"
+
+ARCHITECTURES="all !x86_gcc2"
+SECONDARY_ARCHITECTURES="x86"
+
+libVersion="$portVersion"
+libVersionCompat="$libVersion compat >= ${libVersion%%.*}"
+
+PROVIDES="
+	projectx$secondaryArchSuffix = $portVersion
+	cmd:projectx$secondaryArchSuffix = $portVersion
+	lib:projectx$secondaryArchSuffix = $libVersionCompat
+	"
+REQUIRES="
+	haiku$secondaryArchSuffix
+#	lib:libGL$secondaryArchSuffix
+#	lib:libGrantlee_Templates$secondaryArchSuffix
+	# KF6
+#	lib:libKDEGames6$secondaryArchSuffix
+#	lib:libKEduVocDocument$secondaryArchSuffix
+#	lib:libKF6Archive$secondaryArchSuffix
+#	lib:libKF6Attica$secondaryArchSuffix
+#	lib:libKF6Auth$secondaryArchSuffix
+#	lib:libKF6Baloo$secondaryArchSuffix
+#	lib:libKF6Bookmarks$secondaryArchSuffix
+#	lib:libKF6CalendarCore$secondaryArchSuffix
+#	lib:libKF6Codecs$secondaryArchSuffix
+#	lib:libKF6ColorScheme$secondaryArchSuffix
+#	lib:libKF6Completion$secondaryArchSuffix
+#	lib:libKF6ConfigCore$secondaryArchSuffix
+#	lib:libKF6ConfigGui$secondaryArchSuffix
+#	lib:libKF6ConfigWidgets$secondaryArchSuffix
+#	lib:libKF6Contacts$secondaryArchSuffix
+#	lib:libKF6CoreAddons$secondaryArchSuffix
+#	lib:libKF6Crash$secondaryArchSuffix
+#	lib:libKF6DbusAddons$secondaryArchSuffix
+#	lib:libKF6DNSSD$secondaryArchSuffix
+#	lib:libKF6FileMetaData$secondaryArchSuffix
+#	lib:libKF6GlobalAccel$secondaryArchSuffix
+#	lib:libKF6GuiAddons$secondaryArchSuffix
+#	lib:libKF6I18n$secondaryArchSuffix
+#	lib:libKF6IconThemes$secondaryArchSuffix
+#	lib:libKF6ItemModels$secondaryArchSuffix
+#	lib:libKF6ItemViews$secondaryArchSuffix
+#	lib:libKF6KCMUtils$secondaryArchSuffix
+#	lib:libKF6KIOCore$secondaryArchSuffix
+#	lib:libKF6Kirigami2$secondaryArchSuffix
+#	lib:libKF6JobWidgets$secondaryArchSuffix
+#	lib:libKF6NewStuffCore$secondaryArchSuffix
+#	lib:libKF6Notifications$secondaryArchSuffix
+#	lib:libKF6NotifyConfig$secondaryArchSuffix
+#	lib:libKF6Parts$secondaryArchSuffix
+#	lib:libKF6Service$secondaryArchSuffix
+#	lib:libKF6Solid$secondaryArchSuffix
+#	lib:libKF6SonnetCore$secondaryArchSuffix
+#	lib:libKF6StatusNotifierItem$secondaryArchSuffix
+#	lib:libKF6Svg$secondaryArchSuffix
+#	lib:libKF6SyntaxHighlighting$secondaryArchSuffix
+#	lib:libKF6Syndication$secondaryArchSuffix
+#	lib:libKF6TextAutoCorrectionWidgets$secondaryArchSuffix
+#	lib:libKF6TextTemplate$secondaryArchSuffix
+#	lib:libKF6TextWidgets$secondaryArchSuffix
+#	lib:libKF6ThreadWeaver$secondaryArchSuffix
+#	lib:libKF6WidgetsAddons$secondaryArchSuffix
+#	lib:libKF6WindowSystem$secondaryArchSuffix
+#	lib:libKF6XmlGui$secondaryArchSuffix
+	# KPim5
+#	lib:libKPim5AkonadiContact$secondaryArchSuffix
+#	lib:libKPim5AkonadiCore$secondaryArchSuffix
+#	lib:libKPim5AkonadiMime$secondaryArchSuffix
+#	lib:libKPim5CalendarUtils$secondaryArchSuffix
+#	lib:libKPim5GrantleeTheme$secondaryArchSuffix
+#	lib:libKPim5IdentityManagement$secondaryArchSuffix
+#	lib:libKPim5IMAP$secondaryArchSuffix
+#	lib:libKPim5Libkdepim$secondaryArchSuffix
+#	lib:libKPim5Libkleo$secondaryArchSuffix
+#	lib:libKPim5MailImporter$secondaryArchSuffix
+#	lib:libKPim5MailTransport$secondaryArchSuffix
+#	lib:libKPim5MessageComposer$secondaryArchSuffix
+#	lib:libKPim5Mime$secondaryArchSuffix
+#	lib:libKPim5PimCommon$secondaryArchSuffix
+#	lib:libKPim5TextEdit$secondaryArchSuffix
+	# Qt6
+#	lib:libQt6Core$secondaryArchSuffix
+#	lib:libQt6Core5Compat$secondaryArchSuffix
+#	lib:libQt6DBus$secondaryArchSuffix
+#	lib:libQt6Gui$secondaryArchSuffix
+#	lib:libQt6Keychain$secondaryArchSuffix
+#	lib:libQt6Multimedia$secondaryArchSuffix
+#	lib:libQt6Network$secondaryArchSuffix
+#	lib:libQt6Qml$secondaryArchSuffix
+#	lib:libQt6Quick$secondaryArchSuffix
+#	lib:libQt6Sql$secondaryArchSuffix
+#	lib:libQt6StateMachine$secondaryArchSuffix
+#	lib:libQt6Svg$secondaryArchSuffix
+#	lib:libQt6Webengine$secondaryArchSuffix
+#	lib:libQt6Widgets$secondaryArchSuffix
+#	lib:libQt6Xml$secondaryArchSuffix
+	"
+
+PROVIDES_devel="
+	projectx${secondaryArchSuffix}_devel = $portVersion
+	devel:projectx$secondaryArchSuffix = $libVersionCompat
+	"
+REQUIRES_devel="
+	projectx$secondaryArchSuffix == $portVersion base
+	"
+
+BUILD_REQUIRES="
+	haiku${secondaryArchSuffix}_devel
+#	kquickcharts$secondaryArchSuffix
+#	qqc2_desktop_style6${secondaryArchSuffix}_devel
+#	devel:libassuan$secondaryArchSuffix
+#	devel:libboost_system$secondaryArchSuffix >= 1.83.0
+#	devel:libQCoro5Core$secondaryArchSuffix
+#	devel:libGrantlee_Templates$secondaryArchSuffix
+#	devel:libgpgmepp$secondaryArchSuffix
+#	devel:kirigami_addons1$secondaryArchSuffix
+#	devel:libKDEGames6$secondaryArchSuffix
+#	devel:libKEduVocDocument$secondaryArchSuffix
+#	devel:libKirigamiPlatform$secondaryArchSuffix
+	# KF6
+	extra_cmake_modules$secondaryArchSuffix
+#	devel:libKF6Activities$secondaryArchSuffix
+#	devel:libKF6Archive$secondaryArchSuffix
+#	devel:libKF6Attica$secondaryArchSuffix
+#	devel:libKF6Auth$secondaryArchSuffix
+#	devel:libKF6Baloo$secondaryArchSuffix
+#	devel:libKF6Bookmarks$secondaryArchSuffix
+#	devel:libKF6CalendarCore$secondaryArchSuffix
+#	devel:libKF6CalendarUtils$secondaryArchSuffix
+#	devel:libKF6Codecs$secondaryArchSuffix
+#	devel:libKF6ColorScheme$secondaryArchSuffix
+#	devel:libKF6Completion$secondaryArchSuffix
+#	devel:libKF6ConfigCore$secondaryArchSuffix
+#	devel:libKF6ConfigWidgets$secondaryArchSuffix
+#	devel:libKF6Contacts$secondaryArchSuffix
+#	devel:libKF6CoreAddons$secondaryArchSuffix
+#	devel:libKF6Crash$secondaryArchSuffix
+#	devel:libKF6DbusAddons$secondaryArchSuffix
+#	devel:libKF6Declarative$secondaryArchSuffix
+#	devel:libKF6DNSSD$secondaryArchSuffix
+#	devel:libKF6DocTools$secondaryArchSuffix
+#	devel:libKF6FileMetaData$secondaryArchSuffix
+#	devel:libKF6GlobalAccel$secondaryArchSuffix
+#	devel:libKF6GuiAddons$secondaryArchSuffix
+#	devel:libKF6I18n$secondaryArchSuffix
+#	devel:libKF6IdleTime$secondaryArchSuffix
+#	devel:libKF6IconThemes$secondaryArchSuffix
+#	devel:libKF6ItemModels$secondaryArchSuffix
+#	devel:libKF6ItemViews$secondaryArchSuffix
+#	devel:libKF6JobWidgets$secondaryArchSuffix
+#	devel:libKF6KCMUtils$secondaryArchSuffix
+#	devel:libKF6KIOCore$secondaryArchSuffix
+#	devel:libKF6NewStuffCore$secondaryArchSuffix
+#	devel:libKF6Notifications$secondaryArchSuffix
+#	devel:libKF6NotifyConfig$secondaryArchSuffi
+#	devel:libKF6Package$secondaryArchSuffix
+#	devel:libKF6Parts$secondaryArchSuffix
+#	devel:libKF6Plasma$secondaryArchSuffix
+#	devel:libKF6Purpose$secondaryArchSuffix
+#	devel:libKF6Runner$secondaryArchSuffix
+#	devel:libKF6Service$secondaryArchSuffix
+#	devel:libKF6Solid$secondaryArchSuffix
+#	devel:libKF6SonnetCore$secondaryArchSuffix
+#	devel:libKF6StatusNotifierItem$secondaryArchSuffix
+#	devel:libKF6Svg$secondaryArchSuffix
+#	devel:libKF6Syndication$secondaryArchSuffix
+#	devel:libKF6SyntaxHighlighting$secondaryArchSuffix
+#	devel:libKF6TextAutoCorrectionWidgets$secondaryArchSuffix
+#	devel:libKF6TextTemplate$secondaryArchSuffix
+#	devel:libKF6TextWidgets$secondaryArchSuffix
+#	devel:libKF6ThreadWeaver$secondaryArchSuffix
+#	devel:libKF6Wallet$secondaryArchSuffix
+#	devel:libKF6WidgetsAddons$secondaryArchSuffix
+#	devel:libKF6WindowSystem$secondaryArchSuffix
+#	devel:libKF6XmlGui$secondaryArchSuffix
+	# KPim5
+#	devel:libKPim5AkonadiContact$secondaryArchSuffix
+#	devel:libKPim5AkonadiCore$secondaryArchSuffix
+#	devel:libKPim5AkonadiMime$secondaryArchSuffix
+#	devel:libKPim5CalendarUtils$secondaryArchSuffix
+#	devel:libKPim5GrantleeTheme$secondaryArchSuffix
+#	devel:libKPim5IdentityManagement$secondaryArchSuffix
+#	devel:libKPim5IMAP$secondaryArchSuffix
+#	devel:libKPim5Libkdepim$secondaryArchSuffix
+#	devel:libKPim5Libkleo$secondaryArchSuffix
+#	devel:libKPim5MailImporter$secondaryArchSuffix
+#	devel:libKPim5MailTransport$secondaryArchSuffix
+#	devel:libKPim5MessageComposer$secondaryArchSuffix
+#	devel:libKPim5Mime$secondaryArchSuffix
+#	devel:libKPim5PimCommon$secondaryArchSuffix
+#	devel:libKPim5TextEdit$secondaryArchSuffix
+	# Qt6
+#	qt6_tools${secondaryArchSuffix}_devel
+#	devel:libqca_Qt6$secondaryArchSuffix
+#	devel:libQt6Core$secondaryArchSuffix
+#	devel:libQt6Core5Compat$secondaryArchSuffix
+#	devel:libQt6DBus$secondaryArchSuffix
+#	devel:libQt6Gui$secondaryArchSuffix
+#	devel:libQt6Keychain$secondaryArchSuffix
+#	devel:libQt6Multimedia$secondaryArchSuffix
+#	devel:libQt6Network$secondaryArchSuffix
+#	devel:libQt6Qml$secondaryArchSuffix
+#	devel:libQt6Quick$secondaryArchSuffix
+#	devel:libQt6Sql$secondaryArchSuffix
+#	devel:libQt6StateMachine$secondaryArchSuffix
+#	devel:libQt6Svg$secondaryArchSuffix
+#	devel:libQt6TextToSpeech$secondaryArchSuffix
+#	devel:libQt6Webengine$secondaryArchSuffix
+#	devel:libQt6Widgets$secondaryArchSuffix
+#	devel:libQt6Xml$secondaryArchSuffix
+	"
+BUILD_PREREQUIRES="
+	cmd:cmake
+	cmd:g++$secondaryArchSuffix
+	cmd:make
+	cmd:msgfmt
+	cmd:msgmerge
+	cmd:pkg_config$secondaryArchSuffix
+#	cmd:xsltproc
+	"
+
+#PATCH()
+#{
+	# disable docs generation
+#	sed -e '/add_subdirectory(doc)/ s/^#*/#/' -i CMakeLists.txt
+#	sed -e '/kdoctools_install(po)/ s/^#*/#/' -i CMakeLists.txt
+	# disable KDBusService
+#	sed -e '/KDBusService service;/d' -i src/main.cpp
+#}
+
+#TEST_REQUIRES="
+#	qthaikuplugins$secondaryArchSuffix
+#	"
+
+BUILD()
+{
+	cmake -Bbuild -S. $cmakeDirArgs \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DKDE_INSTALL_PLUGINDIR=$addOnsDir/Qt6 \
+		-DKDE_INSTALL_QMLDIR=$dataDir/Qt6/qml \
+		-DECM_MKSPECS_INSTALL_DIR=$dataDir/Qt6/mkspecs \
+		-DECM_DIR=/system/data/cmake/Modules/ECM/cmake
+	make -C build $jobArgs
+}
+
+INSTALL()
+{
+	make -C build install
+
+	# cleanup
+	rm -rf $dataDir/{applications,icons,metainfo}
+
+	mkdir -p "$dataDir/deskbar/menu/Applications/KDE"
+
+	local MAJOR="`echo "$portVersion" | cut -d. -f1`"
+	local MIDDLE="`echo "$portVersion" | cut -d. -f2`"
+	local MINOR="`echo "$portVersion" | cut -d. -f3`"
+	local APP_NAME="ProjecX"
+	local LONG_INFO="$SUMMARY"
+	local APP_SIGNATURE="application/x-vnd.projectx"
+	sed \
+		-e "s|@MAJOR@|$MAJOR|" \
+		-e "s|@MIDDLE@|$MIDDLE|" \
+		-e "s|@MINOR@|$MINOR|" \
+		-e "s|@LONG_INFO@|$LONG_INFO|" \
+		-e "s|@APP_NAME@|$APP_NAME|" \
+		-e "s|@APP_SIGNATURE@|$APP_SIGNATURE|" \
+		$portDir/additional-files/projectx.rdef.in > projectx.rdef
+
+	addResourcesToBinaries projectx.rdef $binDir/projectx
+	addAppDeskbarSymlink $binDir/projectx "KDE/ProjecX"
+
+	prepareInstalledDevelLibs \
+		projectx
+
+	packageEntries devel \
+		$developDir \
+		$dataDir/Qt6/mkspecs \
+		$libDir/cmake
+}
+
+TEST()
+{
+#	export LIBRARY_PATH="$sourceDir/build/bin${LIBRARY_PATH:+:$LIBRARY_PATH}"
+	ctest --test-dir build --output-on-failure
+#	make -C build test
+}
